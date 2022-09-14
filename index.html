@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="freeCodeCamp Technical Documentation Page" />
+    <title>The Linux kernel Documentation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+<body id="main-doc">
+  <h1 id="title">Linux Kernel Documentation</h1>
+  <nav id="navbar">
+    <!-- <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label> -->
+    <header class="subtitle">Table of Contents</header>
+    
+    <ul>
+      <li><a class="nav-link" href="#Licensing_Documentation">Licensing Documentation</a></li>
+      <li><a class="nav-link" href="#User_oriented_documentation">User oriented documentation</a></li>
+      <li><a class="nav-link" href="#Firmware_related_documentation">Firmware related documentation</a></li>
+      <li><a class="nav-link" href="#Application_developer_documentation">Application developer documentation</a></li>
+      <li><a class="nav-link" href="#Introduction_to_kernel_development">Introduction to kernel development</a></li>
+     </ul>
+  </nav>
+  
+ 
+  <section class="main-section" id="Licensing_Documentation">
+    <header class="subtitle">Licensing Documentation</header>
+    <h5>The following describes the license of the Linux kernel source code (GPLv2), how to properly mark the license of individual files in the source tree, as well as links to the full license text.</h5>
+    <ul>
+      <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/process/license-rules.html#kernel-licensing">Linux kernel licensing rules</a></p></li>
+    </ul>
+    <p>The Linux Kernel is provided under the terms of the GNU General Public License version 2 only (GPL-2.0),
+       as provided in LICENSES/preferred/GPL-2.0, with an explicit syscall exception described in LICENSES/exceptions/Linux-syscall-note,
+        as described in the COPYING file.</p>
+        <p>This documentation file provides a description of how each source file should be annotated to make its license clear and unambiguous.
+        It doesn't replace the Kernel's license.</p>
+        <p>The license described in the COPYING file applies to the kernel source as a whole,
+           though individual source files can have a different license which is required to be compatible with the GPL-2.0:</p>
+    <code>
+      <p>GPL-1.0+  :  GNU General Public License v1.0 or later</p>
+      <p>GPL-2.0+  :  GNU General Public License v2.0 or later</p>
+      <p>LGPL-2.0  :  GNU Library General Public License v2 only</p>
+      <p>LGPL-2.0+ :  GNU Library General Public License v2 or later</p>  
+      <p>LGPL-2.1  :  GNU Lesser General Public License v2.1 only</p>  
+      <p>LGPL-2.1+ :  GNU Lesser General Public License v2.1 or later</p>
+    </code>
+  </section>
+  
+    <section class="main-section" id="User_oriented_documentation">
+     <header class="subtitle">User oriented documentation</header>
+     <h5>The following manuals are written for users of the kernel — those who are trying to get it to work optimally on a given system.</h5>
+      <ul>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/admin-guide/index.html">The Linux kernel user's and administrator's guide</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/kbuild/index.html">Kernel Build System </a></p></li>
+      </ul>
+      <p><b>The Linux kernel user's and administrator's guide</b></p>
+      <p>There is a lot of documentation available both in electronic form on the Internet
+          and in books, both Linux-specific and pertaining to general UNIX questions.
+          I'd recommend looking into the documentation subdirectories on any Linux FTP site for the LDP 
+          (Linux Documentation Project) books. 
+          This README is not meant to be documentation on the system:
+          there are much better sources available.
+        </p>
+        <p>There are various README files in the Documentation/
+          subdirectory: 
+          these typically contain kernel-specific installation notes
+          for some drivers for example.
+          Please read the Documentation/process/changes.rst file,
+          as it contains information about the problems,
+          which may result by upgrading your kernel.
+        </p>
+      <p><b>Installing the kernel source</b></p>
+      <p>If you install the full sources, put the kernel tarball in a directory 
+        where you have permissions (e.g. your home directory)
+        and unpack it:
+      </p>
+      <code>xz -cd linux-5.x.tar.xz | tar xvf -</code>
+      <p>Replace “X” with the version number of the latest kernel.</p>
+      <p><a href="https://docs.kernel.org/admin-guide/README.html">Read me</a></p>
+    </section>
+     
+    <section class="main-section" id="Firmware_related_documentation">
+      <header class="subtitle">Firmware related documentation</header>
+      <h5>The following holds information on the kernel's expectations regarding the platform firmwares.</h5>
+      <ul>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/firmware-guide/index.html">The Linux kernel firmware guide</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/devicetree/index.html">Open Firmware and Devicetree</a></p></li>
+      </ul>
+      <p><b>GCC plugin infrastructure</b></p>
+      <code>apt-get install gcc-10-plugin-dev</code>
+      <p>or on Fedora</p>
+      <code>dnf install gcc-plugin-devel</code>
+      <p><a href="https://docs.kernel.org/firmware-guide/acpi/index.html">Read more</a></p>
+
+    </section>
+   
+     
+    <section class="main-section" id="Application_developer_documentation">
+     <header class="subtitle">Application developer documentation</header>
+     <h5>The user-space API manual gathers together documents describing aspects of the kernel interface as seen by application developers.</h5>
+     <ul>
+      <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/userspace-api/index.html">The Linux kernel user-space API guide</a></p></li>
+     </ul>
+     <p><b>No New Privileges Flag</b></p>
+     <p>To set no_new_privs, use:</p>
+     <code>prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);</code>
+     <p><a href="https://docs.kernel.org/userspace-api/no_new_privs.html">Read more</a></p>
+    </section>
+     
+    <section class="main-section" id="Introduction_to_kernel_development">
+     <header class="subtitle">Introduction to kernel development</header>
+     <ul>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/process/index.html">Working with the kernel development community</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/dev-tools/index.html">Development tools for the kernel</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/doc-guide/index.html">How to write kernel documentation</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/kernel-hacking/index.html">Kernel Hacking Guides</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/trace/index.html">Linux Tracing Technologies</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/maintainer/index.html">Kernel Maintainer Handbook</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/fault-injection/index.html">fault-injection</a></p></li>
+        <li><p><a target="_blank" href="https://www.kernel.org/doc/html/latest/livepatch/index.html">Kernel Livepatching</a></p></li>
+        </ul>
+        <p><b>The Kernel Test Anything Protocol(KTAP), version 1</b></p>
+        <p>KTAP test results describe a series of tests (which may be nested: i.e., test can have subtests), each of which can contain both diagnostic data – e.g., log lines – and a final result. The test structure and results are machine-readable, whereas the diagnostic data is unstructured and is there to aid human debugging.
+
+          KTAP output is built from four different types of lines: - Version lines - Plan lines - Test case result lines - Diagnostic lines</p>
+        <p><b>Test case result lines</b></p>
+        <p>Test case result lines indicate the final status of a test. They are required and must have the format:
+
+        </p>
+        <code>result number [description][ # [directive] [diagnostic data]]
+        </code>
+        <p><a href="https://docs.kernel.org/dev-tools/ktap.html">Read more</a></p>
+    </section>
+
+    
+    
+</body>
+
+<footer class="attribution">
+  <p>Full Documentation at <a href="https://en.wikipedia.org/wiki/The_Notorious_B.I.G." target="_blank">Linux Kernel Documentation</a> A <a href="https://www.freecodecamp.com" target="_blank">FreeCodeCamp</a> Technical Documentation Page, Coded by <a href="https://linktr.ee/Mahdi_Madi" target="_blank">Mahdi Madi</a></p>
+</footer>
+
+
+     
+   
